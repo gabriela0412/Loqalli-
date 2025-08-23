@@ -6,12 +6,16 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
-// Ruta para crear usuario
+// ------------------------------
+// Ruta para crear usuario (Sign Up)
 app.post("/users", async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "Todos los campos son obligatorios" });
+  }
   try {
     const user = await prisma.user.create({
-      data: { name, email },
+      data: { name, email, password },
     });
     res.json(user);
   } catch (error) {
@@ -19,6 +23,27 @@ app.post("/users", async (req, res) => {
   }
 });
 
+// ------------------------------
+// Ruta para login
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ ok: false, message: "Email y password son requeridos" });
+  }
+
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) return res.status(401).json({ ok: false, message: "Usuario no encontrado" });
+    if (user.password !== password) return res.status(401).json({ ok: false, message: "Contraseña incorrecta" });
+
+    return res.json({ ok: true, user: { id: user.id, name: user.name, email: user.email } });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ ok: false, message: "Error del servidor" });
+  }
+});
+
+// ------------------------------
 // Ruta para crear experiencia
 app.post("/experiences", async (req, res) => {
   const { title, description, location, price, date } = req.body;
@@ -57,7 +82,8 @@ app.get("/users/:id/bookings", async (req, res) => {
   res.json(bookings);
 });
 
-//  Iniciar servidor
+// ------------------------------
+// Iniciar servidor
 app.listen(3000, () => {
   console.log("Servidor corriendo en http://localhost:3000");
 });
