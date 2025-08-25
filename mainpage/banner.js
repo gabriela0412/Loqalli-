@@ -1,10 +1,10 @@
 let banners = [];
 let currentIndex = 0;
 const bannersPerPage = 4;
-const rotateInterval = 5000; // 5 segundos
+const rotateInterval = 10000; // 5 segundos
 
 function fetchBanners() {
-  fetch("https://script.google.com/macros/s/AKfycbyD_pn1GA27TQ6UbtnATgUALMrpZvp3XZfOAiPzh-g1ICJVSlQs9M9dj_cBijK2JcE6/exec") // ← pon aquí tu URL
+  fetch("https://script.google.com/macros/s/AKfycbyD_pn1GA27TQ6UbtnATgUALMrpZvp3XZfOAiPzh-g1ICJVSlQs9M9dj_cBijK2JcE6/exec")
     .then(res => res.json())
     .then(data => {
       banners = data;
@@ -22,17 +22,26 @@ function showBanners() {
 
   slice.forEach(banner => {
     const div = document.createElement("div");
-    div.className = "banner";
+    div.className = "banner-item";
+
     div.innerHTML = `
-      <h3>${banner.title}</h3>
-      <p>${banner.description}</p>
-      <img src="${banner.image_url}" alt="${banner.title}" width="200">
-      <a href="${banner.link}">Ver más</a>
+      <img class="banner-image" src="${banner.image_url}" alt="${banner.title}">
+      <div class="banner-content">
+        <h3>${banner.title}</h3>
+        <p>${banner.description}</p>
+      </div>
     `;
+
+    div.style.cursor = "pointer";
+    div.onclick = () => {
+      if (banner.link) {
+        window.open(banner.link, "_blank");
+      }
+    };
+
     container.appendChild(div);
   });
 
-  // Avanza al siguiente grupo de banners
   currentIndex += bannersPerPage;
   if (currentIndex >= banners.length) {
     currentIndex = 0;
