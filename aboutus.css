@@ -14,6 +14,16 @@ body {
 
     background-color: rgb(255, 255, 255); 
 
+    background: url("https://cdn.wallpapersafari.com/92/46/3ujINs.jpg") no-repeat center center fixed  ;
+
+    background-size: cover;
+
+    position: relative;
+    
+    
+
+    
+
 } 
 
   
@@ -27,6 +37,8 @@ header {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
 
     padding: 1rem 1rem; 
+
+    background: linear-gradient(to right, #0058ca, #43c3ff);
 
 } 
 
@@ -150,13 +162,19 @@ p{
 
 .div-text{ 
 
-    height: fit-content; 
 
-    text-align: left; 
+     background-color: #ffffff;
 
-    width: 800px; 
+    padding: 20px;
 
-    padding-left: 300px; 
+    border-radius: 10px;
+
+    max-width: 800px;
+
+    margin: 20px auto;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+
 
 } 
 
@@ -204,7 +222,7 @@ font-family: 'Arial', sans-serif;
 
 .values{ 
 
-background-color: #ffd7d7; /* Fondo claro */ 
+background-color: #57c2ff; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -250,7 +268,7 @@ color: #333
 
 .values2{ 
 
-background-color: #ffd7d7; /* Fondo claro */ 
+background-color: #57c2ff; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -296,7 +314,7 @@ color: #333
 
 .values3{ 
 
-background-color: #ffd7d7; /* Fondo claro */ 
+background-color: #57c2ff; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -354,7 +372,7 @@ gap: 10px;
 
 button{ 
 
-    background-color: #FF8086; 
+    background-color: #0274b6; 
 
     border-radius: 15px; 
 
