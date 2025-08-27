@@ -14,11 +14,6 @@ body {
 
     background-color: rgb(255, 255, 255); 
 
-    background: url("https://cdn.wallpapersafari.com/92/46/3ujINs.jpg") no-repeat center center fixed  ;
-
-    background-size: cover;
-
-    position: relative;
     
     
 
@@ -37,8 +32,6 @@ header {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
 
     padding: 1rem 1rem; 
-
-    background: linear-gradient(to right, #0058ca, #43c3ff);
 
 } 
 
@@ -74,14 +67,16 @@ nav ul {
 
     list-style: none; 
 
-    margin-left: 700px; 
+    margin-left: 800px; 
+
+    gap: 8px;
 } 
 
   
 
 nav ul li { 
 
-    margin-left: 1.5rem; 
+    margin-left: 5.0rem; 
 
 } 
 
@@ -109,7 +104,7 @@ nav ul li a:hover {
 
 .profile-circle { 
 
-    margin-left: 200px; 
+    margin-left: 50px; 
 
     width: 40px; 
 
@@ -221,7 +216,7 @@ font-family: 'Arial', sans-serif;
 
 .values{ 
 
-background-color: #57c2ff; /* Fondo claro */ 
+background-color: #FCF7F7; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -259,7 +254,7 @@ color: #333
 
   font-size: 16px; 
 
-  color: #555; 
+  color: #964F52; 
 
 } 
 
@@ -267,7 +262,7 @@ color: #333
 
 .values2{ 
 
-background-color: #57c2ff; /* Fondo claro */ 
+background-color: #FCF7F7; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -305,7 +300,7 @@ color: #333
 
   font-size: 16px; 
 
-  color: #555; 
+  color: #964F52; 
 
 } 
 
@@ -313,7 +308,7 @@ color: #333
 
 .values3{ 
 
-background-color: #57c2ff; /* Fondo claro */ 
+background-color: #FCF7F7; /* Fondo claro */ 
 
 border-radius: 12px; 
 
@@ -351,7 +346,7 @@ color: #333
 
 font-size: 16px; 
 
-color: #555; 
+color: #964F52; 
 
 } 
 
@@ -371,7 +366,7 @@ gap: 10px;
 
 button{ 
 
-    background-color: #0274b6; 
+    background-color: #4D303F; 
 
     border-radius: 15px; 
 
@@ -380,6 +375,8 @@ button{
     padding: 10px 20px; 
 
     font-size: 16px; 
+
+    color: #FCF7F7;
 
 } 
 
