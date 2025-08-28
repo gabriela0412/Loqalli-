@@ -67,7 +67,7 @@ nav ul {
 
     list-style: none; 
 
-    margin-left: 800px; 
+    margin-left: 700px; 
 
     gap: 8px;
 } 
@@ -88,7 +88,7 @@ nav ul li a {
 
     color: #2c3e50; 
 
-    font-weight: 500; 
+    font-weight: 400; 
 
 } 
 
@@ -112,7 +112,7 @@ nav ul li a:hover {
 
     border-radius: 50%; 
 
-    background-color: #2c3e50; 
+    background-color: #4D303F; 
 
     display: flex; 
 
@@ -167,7 +167,7 @@ p{
 
     margin: 20px auto;
 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    box-shadow: 0 2px 8px #4D303F; 
 
 
 } 
@@ -394,4 +394,12 @@ button{
 
 } 
 
- 
+
+.logo{
+        float: left;
+        margin-right: 10px;
+        width: 200px;
+    
+
+}
+
