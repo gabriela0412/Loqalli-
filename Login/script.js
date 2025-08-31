@@ -1,16 +1,18 @@
-// script.js
-
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('login-button');
+const verificationContainer = document.getElementById('verification-container');
+const verificationInput = document.getElementById('verification-code');
+const verifyButton = document.getElementById('verify-button');
+const otpMessage = document.getElementById('otp-display');
 
+let userEmail = '';
 
-// Your API login endpoint
-const API_URL = "http://localhost:3000/login";
+// Evitamos que el submit recargue la página
+document.getElementById('login-form').addEventListener('submit', e => e.preventDefault());
 
-loginButton.addEventListener('click', async (e) => {
-    e.preventDefault();
-
+// --- LOGIN ---
+loginButton.addEventListener('click', async () => {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
@@ -20,24 +22,74 @@ loginButton.addEventListener('click', async (e) => {
     }
 
     try {
-        const response = await fetch(API_URL, {
+        // Login
+        const loginRes = await fetch("http://localhost:3000/login", {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
+        const loginData = await loginRes.json();
 
-        const data = await response.json();
+        if (!loginRes.ok) {
+            alert(loginData.message || 'Login failed.');
+            return;
+        }
 
-        if (response.ok) {
-            alert('Login successful!');
+        // OTP
+        const otpRes = await fetch("http://localhost:3000/send-otp", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const otpData = await otpRes.json();
+
+        if (!otpRes.ok) {
+            alert(otpData.message || 'Error generating verification code.');
+            return;
+        }
+
+        userEmail = email;
+
+        // MOSTRAR FORMULARIO OTP
+        verificationContainer.style.display = 'block';
+        otpMessage.textContent = `Your verification code is: ${otpData.otp}`;
+
+        // Opcional: si quieres, puedes deshabilitar inputs de login
+        emailInput.disabled = true;
+        passwordInput.disabled = true;
+        loginButton.disabled = true;
+
+    } catch (err) {
+        console.error(err);
+        alert('Error connecting to server.');
+    }
+});
+
+// --- VERIFICAR OTP ---
+verifyButton.addEventListener('click', async () => {
+    const enteredOtp = verificationInput.value.trim();
+
+    if (!enteredOtp) {
+        alert('Please enter the verification code.');
+        return;
+    }
+
+    try {
+        const verifyRes = await fetch("http://localhost:3000/verify-otp", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail, otp: enteredOtp })
+        });
+        const verifyData = await verifyRes.json();
+
+        if (verifyRes.ok) {
+            alert(`Welcome ${verifyData.user.name}!`);
             window.location.href = '../mainpage/mainpage.html';
         } else {
-            alert(data.message || 'Login failed. Check your credentials.');
+            alert(verifyData.message || 'Verification code is invalid.');
         }
-    } catch (error) {
-        console.error('Error logging in:', error);
-        alert('There was an error connecting to the server.');
+    } catch (err) {
+        console.error(err);
+        alert('Error connecting to server.');
     }
 });
