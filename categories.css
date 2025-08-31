@@ -17,6 +17,11 @@ h3 {
   margin-left: 150px;
 }
 
+.logo {
+    height: 300px;
+    
+}
+
 
 
 .search {
@@ -33,13 +38,13 @@ h3 {
   font-size: 1rem;
   border: none;
   border-radius: 14px;
-  background-color: #f9eaea; 
+  background-color: #f8e8cc; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   color: #333;
 }
 
 .search input::placeholder {
-  color: #aa8888;
+  color: #4d303f;
 }
 
 
@@ -51,7 +56,7 @@ h3 {
   background: none;
   border: none;
   font-size: 1.2rem;
-  color: #aa8888;
+  color: #f8e8cc;
   cursor: pointer;
 }
 
@@ -82,13 +87,11 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #2c3e50;
+    color: #4d303f;
     font-weight: 500;
 }
 
-nav ul li a:hover {
-    color: #3283cf;
-}
+
 
 #categories {
   display: flex;
@@ -101,7 +104,7 @@ nav ul li a:hover {
 
 #categories button {
   padding: 10px 20px;
-  background-color: #f2e8e4;
+  background-color: #f8e8cc;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -110,7 +113,7 @@ nav ul li a:hover {
 }
 
 #categories button:hover {
-  background-color: #e0d0cb;
+  background-color: #4d303f;
 }
 
 
@@ -156,7 +159,7 @@ nav ul li a:hover {
   padding: 8px;
   width: 100%;
   border: none;
-  background-color: #e0d0cb;
+  background-color: #4d303f;
   color: white;
   border-radius: 6px;
   cursor: pointer;
