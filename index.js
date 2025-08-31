@@ -10,13 +10,9 @@ app.use(express.json());
 
 app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
-  if (!name || !email || !password) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
+  if (!name || !email || !password) return res.status(400).json({ error: "All fields are required" });
   try {
-    const user = await prisma.user.create({
-      data: { name, email, password },
-    });
+    const user = await prisma.user.create({ data: { name, email, password } });
     res.json(user);
   } catch (error) {
     res.status(400).json({ error: "Email already exists or data is invalid" });
@@ -25,17 +21,62 @@ app.post("/users", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(400).json({ ok: false, message: "Please fill in both fields." });
-  }
+  if (!email || !password) return res.status(400).json({ ok: false, message: "Please fill in both fields." });
   try {
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) return res.status(401).json({ ok: false, message: "User not found." });
     if (user.password !== password) return res.status(401).json({ ok: false, message: "Incorrect password." });
-    return res.json({ ok: true, user: { id: user.id, name: user.name, email: user.email } });
+    res.json({ ok: true, user: { id: user.id, name: user.name, email: user.email } });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ ok: false, message: "Server error." });
+    res.status(500).json({ ok: false, message: "Server error." });
+  }
+});
+
+app.post("/send-otp", async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    await prisma.otpToken.create({
+      data: {
+        otp,
+        userId: user.id,
+        expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+      },
+    });
+
+    res.json({ message: "OTP generated!", otp }); // Aquí mandamos el OTP al front
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error generating OTP" });
+  }
+});
+
+app.post("/verify-otp", async (req, res) => {
+  const { email, otp } = req.body;
+  if (!email || !otp) return res.status(400).json({ message: "Email and code are required" });
+
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const token = await prisma.otpToken.findFirst({
+      where: { userId: user.id, otp, expiresAt: { gte: new Date() } },
+      orderBy: { createdAt: "desc" },
+    });
+
+    if (!token) return res.status(400).json({ message: "Invalid or expired code" });
+
+    await prisma.otpToken.delete({ where: { id: token.id } });
+
+    res.json({ message: "Code verified successfully", user: { id: user.id, name: user.name, email: user.email } });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error verifying code" });
   }
 });
 
@@ -59,11 +100,9 @@ app.get("/experiences", async (req, res) => {
 app.post("/bookings", async (req, res) => {
   const { userId, experienceId } = req.body;
   try {
-    const booking = await prisma.booking.create({
-      data: { userId, experienceId },
-    });
+    const booking = await prisma.booking.create({ data: { userId, experienceId } });
     res.json(booking);
-  } catch (error) {
+  } catch (err) {
     res.status(400).json({ error: "Invalid user or experience" });
   }
 });
@@ -80,3 +119,5 @@ app.get("/users/:id/bookings", async (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
+
+
