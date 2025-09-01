@@ -8,27 +8,28 @@ body {
 }
 
 header {
-    background-color: #4D303F;
+    background-color:#F8E8CC;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1rem;
-    width: 1319px;
+    width: 1645px;
 }
 
 nav {
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 50px;
 }
 
 nav h1 {
     font-size: 1.8rem;
-    color: #ffffff;
+    color: #4D303F;
     margin: 0;
 }
 
 nav ul {
     display: flex;
     list-style: none;
+    margin-left: 1150px;
 }
 
 nav ul li {
@@ -37,29 +38,21 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;   
+    color: #4D303F;
+    font-weight: 500;  
 }
 
 nav ul li a:hover {
-    color: #3283cf;
+    color: #4D303F;
 }
 
-nav input{
-    margin-left: 650px;
-    text-align: center;
-    background-color:  #F8E8CC;
-    border: none;
-    border-radius: 10px;
-    height: 25px;
-}
 
 .profile-circle {
     margin-left: 40px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #F8E8CC;
+    background-color: #4D303F;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -68,7 +61,7 @@ nav input{
 .input2 {
     justify-content: center;
     margin-left: 115px;
-    width: 1100px;
+    width: 1400px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #ccc;
