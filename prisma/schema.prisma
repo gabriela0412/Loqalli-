@@ -11,9 +11,11 @@ model User {
   id        Int       @id @default(autoincrement())
   name      String
   email     String    @unique
+  password  String
   createdAt DateTime  @default(now())
   bookings  Booking[]
 }
+
 
 model Experience {
   id          Int       @id @default(autoincrement())
@@ -36,3 +38,19 @@ model Booking {
   experience  Experience @relation(fields: [experienceId], references: [id])
 }
 
+ 
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+ 
+  posts Post[]   // Relación: una categoría tiene muchos posts
+}
+ 
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String?
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+
+}
