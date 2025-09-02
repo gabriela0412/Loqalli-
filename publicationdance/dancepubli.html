@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Publication dance | Loqalli</title>
+  <link rel="stylesheet" href="dancepubli.css">
+</head>
+<body>
+  <header>
+    <nav>  
+    <img src="../img/logo.png">
+    <ul>
+    <nav>
+      <a href="#">Explorar</a>
+      <a href="#">Crear experiencia</a>
+      <a href="#">Ayuda</a>
+    </ul>
+      <button class="btn-login">Iniciar sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Traditional Dance Lessons</h1>
+      <p>Learn folk dance and learn more about our culture.</p>
+
+      
+      <div class="gallery">
+        <img src="https://www.cultura.gob.sv/wp-content/uploads/2021/07/BFN-1-0-1024x683.jpg" alt="img ejemplo">
+        <img src="https://th.bing.com/th/id/R.3ca3f9c498b0143ba66146a029fb4111?rik=jQJe8hAfvjgTgQ&pid=ImgRaw&r=0" alt="img ejemplo">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.p1YC5CUzpHZIPIYsWI6OpwEyDM?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="img ejemplo">
+      </div>
+
+      
+      <div class="long-description">
+        <h2>Description of the experience</h2>
+        <p>
+        In this experience, you will be able to learn about the national dance of El Salvador, where you will not only practice it but also take home a nice memory.
+        </p>
+        <p>
+            You will also be able to see the different types of dance and learn about the history of folklore and learn more about our culture.
+        </p>
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>Ubicación</h2>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.682558943219!2d-89.2181913!3d13.6929403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633046f2efb6c7%3A0x123456789abcdef!2sSan%20Salvador!5e0!3m2!1ses!2ssv!4v1699999999999"
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
+    </section>
+
+   <section class="form">
+  <h2>Disponibilidad</h2>
+
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonth">&lt;</button>
+      <span id="monthYear"></span>
+      <button id="nextMonth">&gt;</button>
+    </div>
+    <table id="calendar">
+      <thead>
+        <tr>
+          <th>Dom</th>
+          <th>Lun</th>
+          <th>Mar</th>
+          <th>Mié</th>
+          <th>Jue</th>
+          <th>Vie</th>
+          <th>Sáb</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="inputs">
+    <input type="time" id="hora">
+  </div>
+  <button id="reservarBtn" class="btn-reservar">Reservar</button>
+</section>
+
+
+
+
+  <script src="dancepubli.js"></script>
+</body>
+</html>
