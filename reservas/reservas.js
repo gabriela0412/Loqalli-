@@ -89,3 +89,4 @@ document.getElementById("reservarBtn").addEventListener("click", () => {
     alert(`Reserva confirmada para ${selectedDate.toLocaleDateString()} a las ${hora}`);
   }
 });
+

@@ -1,40 +1,61 @@
 import express from "express";
+import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 
 const app = express();
 const prisma = new PrismaClient();
 
+app.use(cors());
 app.use(express.json());
 
-// Ruta para crear usuario
 app.post("/users", async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
   try {
     const user = await prisma.user.create({
-      data: { name, email },
+      data: { name, email, password },
     });
     res.json(user);
   } catch (error) {
-    res.status(400).json({ error: "El correo ya existe o los datos no son válidos" });
+    res.status(400).json({ error: "Email already exists or data is invalid" });
   }
 });
 
-// Ruta para crear experiencia
-app.post("/experiences", async (req, res) => {
-  const { title, description, location, price, date } = req.body;
-  const experience = await prisma.experience.create({
-    data: { title, description, location, price, date: new Date(date) },
-  });
-  res.json(experience);
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ ok: false, message: "Please fill in both fields." });
+  }
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) return res.status(401).json({ ok: false, message: "User not found." });
+    if (user.password !== password) return res.status(401).json({ ok: false, message: "Incorrect password." });
+    return res.json({ ok: true, user: { id: user.id, name: user.name, email: user.email } });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ ok: false, message: "Server error." });
+  }
 });
 
-// Ruta para listar experiencias
+app.post("/experiences", async (req, res) => {
+  const { title, description, location, price, date } = req.body;
+  try {
+    const experience = await prisma.experience.create({
+      data: { title, description, location, price, date: new Date(date) },
+    });
+    res.json(experience);
+  } catch (err) {
+    res.status(400).json({ error: "Invalid data for experience" });
+  }
+});
+
 app.get("/experiences", async (req, res) => {
   const experiences = await prisma.experience.findMany();
   res.json(experiences);
 });
 
-// Ruta para hacer una reserva
 app.post("/bookings", async (req, res) => {
   const { userId, experienceId } = req.body;
   try {
@@ -43,11 +64,10 @@ app.post("/bookings", async (req, res) => {
     });
     res.json(booking);
   } catch (error) {
-    res.status(400).json({ error: "Usuario o experiencia no válidos" });
+    res.status(400).json({ error: "Invalid user or experience" });
   }
 });
 
-// Ruta para ver reservas de un usuario
 app.get("/users/:id/bookings", async (req, res) => {
   const { id } = req.params;
   const bookings = await prisma.booking.findMany({
@@ -57,7 +77,6 @@ app.get("/users/:id/bookings", async (req, res) => {
   res.json(bookings);
 });
 
-//  Iniciar servidor
 app.listen(3000, () => {
-  console.log("Servidor corriendo en http://localhost:3000");
+  console.log("Server running on http://localhost:3000");
 });
