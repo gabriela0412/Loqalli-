@@ -6,138 +6,156 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #ffffff;
+    background-color: #fdfaf3;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
-
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 1rem 1rem;
-}
-
-nav {
+    width: 100%;
+    background-color: #fbf0d4;
+    padding: 15px 30px;
     display: flex;
+    justify-content: space-between; 
     align-items: center;
-    height: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px; 
 }
 
-nav h1 {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin: 0;
-}
-
-nav ul {
-    display: flex;
+header nav ul {
     list-style: none;
-    margin-left: 700px;
-}
-
-nav ul li {
-    margin-left: 1.5rem;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 500;
-}
-
-nav ul li a:hover {
-    color: #3283cf;
-}
-
-.main-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 68px); /* Subtract navbar height */
-    padding: 2rem;
+    gap: 40px; /* aumenta el espacio entre Sign Up y Help */
+    margin-left: -10px; /* si quieres que todo el grupo siga un poquito hacia la izquierda */
+    padding: 0;
 }
 
-/* Login Container */
-.login-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 350px;
+
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #562B45;
+    text-decoration: none;
+    margin-left: 45px; /* mueve el logo hacia la derecha */
+}
+
+header nav ul li a.help {
+    color: #562B45;
+    font-weight: 500;
+    font-size: 16px; 
+    text-decoration: none; /* quita la raya debajo */
+    transition: color 0.3s ease;
+}
+
+
+header nav ul li a:hover {
+    color: #333;
+}
+
+header nav ul li a.signup {
+  display: inline-block;
+  background-color: #562B45;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+header nav ul li a.signup:hover {
+  background-color: #5e304b;
+}
+
+header nav ul li a.help {
+  color: #562B45;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a.help:hover {
+  color: #333;
+}
+
+.container {
+    background-color: transparent;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
-h1 {
+h2 {
     color: #333;
-    margin-bottom: 25px;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(255, 233, 233);
-}
-
-.forgot-password {
-    display: block;
-    text-align: left;
-    margin-bottom: 20px;
-    color: #4285f4;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-button {
-    background-color: #f44242;
-    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fbf0d4;
+}
+
+input::placeholder {
+    color: #a09a8e;
+}
+
+button {
     width: 100%;
-    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
 }
 
-.divider {
-    border-top: 1px solid #eee;
-    margin: 25px 0;
+button:hover {
+    opacity: 0.9;
 }
 
-.google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+#login-button,
+#verify-button {
+    background-color: #562B45;
+    color: white;
+    margin-top: 10px;
 }
 
-.google-login input {
-    margin-right: 10px;
+#verification-container p {
+    color: #555;
+    margin-bottom: 15px;
 }
 
-.register-link {
-    color: #686868;
+@media screen and (max-width: 500px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    header nav ul {
+        gap: 15px;
+    }
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+ header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #562B45;
     text-decoration: none;
-}
-
-p{
-    color: #686868;
-}
-
-.register-link:hover {
-    color: blue;
 }
