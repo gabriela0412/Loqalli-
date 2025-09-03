@@ -38,19 +38,6 @@ model Booking {
   experience  Experience @relation(fields: [experienceId], references: [id])
 }
 
-model Category {
-  id    Int    @id @default(autoincrement())
-  name  String
-  posts Post[]
-}
-
-model Post {
-  id          Int      @id @default(autoincrement())
-  title       String
-  content     String?
-  categoryId  Int
-  category    Category @relation(fields: [categoryId], references: [id])
-}
 
 model OtpToken {
   id        Int      @id @default(autoincrement())
@@ -61,3 +48,4 @@ model OtpToken {
 
   user User @relation(fields: [userId], references: [id])
 }
+
