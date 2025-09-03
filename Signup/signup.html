@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+  <h1 class="logo-text">Loqalli</h1>
+    <nav>
+      <ul>
+        <li><a href="signup.html" class="signup">Sign Up</a></li>
+        <li><a href="help.html" class="help">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- FORM -->
+  <div class="container">
+    <h2>Create Account</h2>
+    <form id="signup-form">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" id="signup-button">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="../Login/login.html">Login</a></p>
+
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>

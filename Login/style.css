@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdfaf3;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+header {
+  width: 100%;
+  background-color: #fbf0d4;
+  padding: 25px 35px; /* un poco más ancho */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #562B45;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+  cursor: default;
+  text-decoration: none;
+}
+
+
+header {
+    width: 100%;
+    background-color: #fbf0d4;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px; 
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* aumenta el espacio entre Sign Up y Help */
+    margin-left: -10px; /* si quieres que todo el grupo siga un poquito hacia la izquierda */
+    padding: 0;
+}
+
+
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #562B45;
+    text-decoration: none;
+    margin-left: 45px; /* mueve el logo hacia la derecha */
+}
+
+header nav ul li a.help {
+    color: #562B45;
+    font-weight: 500;
+    font-size: 16px; 
+    text-decoration: none; /* quita la raya debajo */
+    transition: color 0.3s ease;
+}
+
+
+header nav ul li a:hover {
+    color: #333;
+}
+
+header nav ul li a.signup {
+  display: inline-block;
+  background-color: #562B45;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+header nav ul li a.signup:hover {
+  background-color: #5e304b;
+}
+
+header nav ul li a.help {
+  color: #562B45;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a.help:hover {
+  color: #333;
+}
+
+.container {
+    background-color: transparent;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fbf0d4;
+}
+
+input::placeholder {
+    color: #a09a8e;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#login-button,
+#verify-button {
+    background-color: #562B45;
+    color: white;
+    margin-top: 10px;
+}
+
+#verification-container p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    header nav ul {
+        gap: 15px;
+    }
+}
+
