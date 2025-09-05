@@ -1,0 +1,131 @@
+body { 
+    font-family: 'Arial', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    color: #2c2c2c; 
+    line-height: 1.6; 
+    background-color: #ffffff; 
+} 
+
+header { 
+    background-color: #ffffff; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    padding: 1rem 2rem; 
+} 
+
+nav { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; /* Logo a la izquierda, menú y perfil a la derecha */
+    height: 60px; 
+} 
+
+.logo img {
+    max-height: 80px; 
+    width: auto;
+    object-fit: contain;
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+    margin: 0;
+    padding: 0;
+    align-items: center;
+} 
+
+nav ul li a { 
+    text-decoration: none; 
+    color: #2c2c2c; 
+    font-weight: 500; 
+    transition: color 0.3s;
+} 
+
+nav ul li a:hover { 
+    color: #BF5324; 
+} 
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #ccc;
+    background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACypFeReFFp4Gp_JCSt0YUfAyi3QVLZr1-ROqhxGL56VQywaKjNLdzcJIkSMbkZikZeVdHaqJ5PPQibULztJtMDArz1iLTHeAZfdNZfU1rAD8qSBspFmgy3crmvJRNGZwSs3hQdmi1x_EcfckHLAE0CGTZ5jWKfsWT1yf9Xdzrln_K1goD1X9bF11JuHw8lRCsEoNqJO3UKBmMDV4DtGq7hyKEn1lHFdgebp5ajK-63kHwybtf5ozRv9ZxZjdBrn6gVESm43DbitI");
+}
+
+h3 { 
+    color: #BF5324; /* títulos naranja */
+    font-size: xx-large; 
+    font-family: 'Arial', sans-serif; 
+} 
+
+p { 
+    color: #2c2c2c; 
+} 
+
+.div-text { 
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+} 
+
+.mision, .mision2, .mision3 { 
+    color: #BF5324; /* Our Mission, Our Team, Our Values naranja */
+    font-size: x-large; 
+    font-family: 'Arial', sans-serif; 
+} 
+
+.values, .values2, .values3 { 
+    background-color: #F2E0D0; /* beige botones secundarios */
+    border-radius: 12px; 
+    padding: 20px; 
+    max-width: 300px; 
+    font-family: 'Arial', sans-serif; 
+    text-align: left; 
+} 
+
+.values h3, .values2 h3, .values3 h3 { 
+    font-size: 20px; 
+    margin: 0 0 10px; 
+    color: #BF5324; /* títulos de los valores en naranja */
+} 
+
+.values p, .values2 p, .values3 p { 
+    font-size: 16px; 
+    color: #2c2c2c; 
+} 
+
+.divmadre { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 10px; 
+} 
+
+button { 
+    background-color: #BF5324; 
+    border-radius: 15px; 
+    height: 40px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    color: #ffffff; 
+    cursor: pointer;
+    transition: background 0.3s; 
+} 
+
+button:hover { 
+    background-color: #A6451F; 
+} 
+
+.boton { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 10vh; 
+} 
+

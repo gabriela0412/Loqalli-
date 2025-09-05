@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loqalli - New Microexperience</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+  <header>
+    <nav>
+            <div class="logo">
+        <img src="../loqallilogo.png" alt="Loqalli Logo">
+      </div>
+
+      <div class="nav-right">
+        <ul>
+          <li><a href="../Homepage/loqalli.html">Home</a></li>
+        </ul>
+        <div class="profile-circle"></div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Add a new microexperience</h2>
+    <form>
+      <label>
+        Title
+        <input type="text" placeholder="Ex. Traditional Cooking Class">
+      </label>
+
+      <label>
+        Description
+        <textarea placeholder="Describe your experience in detail"></textarea>
+      </label>
+
+      <label>
+        Category
+        <select>
+          <option>Gastronomy</option>
+          <option>Craft & Art</option>
+          <option>Adventure</option>
+          <option>Dance and Folklore</option>
+        </select>
+      </label>
+
+      <label>
+        Location
+        <input type="text" placeholder="Ex. San Salvador">
+      </label>
+
+      <label>
+        Price
+        <input type="text" placeholder="Ex. 25 USD">
+      </label>
+
+      <h3>Availability</h3>
+      <div class="calendar-nav">
+        <button type="button" id="prevMonth">&lt;</button>
+        <span id="currentMonth"></span>
+        <button type="button" id="nextMonth">&gt;</button>
+      </div>
+      <div class="calendar-grid" id="calendar"></div>
+
+      <h3>Photos</h3>
+      <button type="button" class="btn-upload" id="uploadBtn">Upload Photos</button>
+      <input type="file" id="fileInput" accept="image/*" multiple style="display:none;">
+      <div id="previewContainer" class="preview-container"></div>
+
+      <button type="submit" class="btn-primary">Publish</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

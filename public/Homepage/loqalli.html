@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loqalli - Explore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../loqallilogo.png" alt="Loqalli Logo">
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="../Welcome page/index.html">Home</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="../Addexperience/new.html">Create</a></li> 
+          <li><a href="../Aboutus/index.html">About us</a></li>
+        </ul>
+        <div class="profile-circle"></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="search-section">
+    <input class="input2" type="text" placeholder="Search experiences...">
+    <div class="buttons">
+      <div class="dropdown">
+        <button>Date</button>
+        <div class="dropdown-content" data-filter="date">
+          <button data-value="2025-09">September 2025</button>
+          <button data-value="2025-10">October 2025</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Category</button>
+        <div class="dropdown-content" data-filter="category">
+          <button data-value="Gastronomy">Gastronomy</button>
+          <button data-value="Crafts & Art">Crafts & Art</button>
+          <button data-value="Adventure">Adventure</button>
+          <button data-value="Dance & Folklore">Dance & Folklore</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Location</button>
+        <div class="dropdown-content" data-filter="location">
+          <button data-value="San Salvador">San Salvador</button>
+          <button data-value="Ahuachapán">Ahuachapán</button>
+          <button data-value="La Libertad">La Libertad</button>
+          <button data-value="Chalatenango">Chalatenango</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Price</button>
+        <div class="dropdown-content" data-filter="price">
+          <button data-min="0"  data-max="20">$0 - $20</button>
+          <button data-min="20" data-max="30">$20 - $30</button>
+          <button data-min="30" data-max="40">$30 - $40</button>
+          <button data-min="40" data-max="60">$40 - $60</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Microexperiences</h2>
+    <div class="experiences" id="experiences-container">
+      
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">News</h2>
+    <div id="banner-container" class="banner-grid">
+      
+    </div>
+  </section>
+
+  <script src="banner.js"></script>
+  <script src="experiences.js"></script>
+</body>
+</html>
