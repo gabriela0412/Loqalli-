@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+}
+
+body {
+  background: #ffffff; 
+  color: #2c2c2c; 
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff; 
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #894C2C; 
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #894C2C; 
+}
+
+.btn-login {
+  background: #894C2C; 
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login:hover {
+  background: #7B4427;
+  transform: scale(1.05);
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.gallery img {
+  width: 30%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.long-description {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.long-description h2 {
+  color: #894C2C; 
+  margin-bottom: 1rem;
+}
+
+.long-description p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.info {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.info h2 {
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.form {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form h2 {
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type="date"],
+input[type="time"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background: #f0f0f0;
+  color: #2c2c2c;
+}
+
+.btn-reservar {
+  background: #894C2C; 
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-reservar:hover {
+  background: #7B4427;
+  transform: scale(1.05);
+}
+
+.calendar-container {
+  max-width: 350px;
+  margin: 1rem auto 2rem auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #ffffff;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #894C2C; 
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.calendar-header button {
+  background: #F2E0D0; 
+  color: #2c2c2c;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#calendar {
+  width: 100%;
+  border-collapse: collapse;
+  color: #2c2c2c;
+}
+
+#calendar th, #calendar td {
+  width: 14.28%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+#calendar td {
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+#calendar td:hover {
+  background: #87908F; 
+  color: #fff;
+}
+
+#calendar td.selected {
+  background: #E6D3BD; 
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery img {
+    width: 80%;
+  }
+
+  .form {
+    padding: 1rem;
+  }
+
+  .calendar-container {
+    width: 100%;
+  }
+}
