@@ -1,10 +1,10 @@
 let banners = [];
 let currentIndex = 0;
 const bannersPerPage = 4;
-const rotateInterval = 1000; 
+const rotateInterval = 10000; // 5 segundos
 
 function fetchBanners() {
-  fetch("https://script.google.com/macros/s/AKfycbyD_pn1GA27TQ6UbtnATgUALMrpZvp3XZfOAiPzh-g1ICJVSlQs9M9dj_cBijK2JcE6/exec")
+  fetch("https://script.google.com/macros/s/AKfycbyNpk6D51QW-_Up8kz_uW_-KQZL-_UmDbcAs0uCjuYCiBi1R1oTaVT5VZTocastwj54Sw/exec")
     .then(res => res.json())
     .then(data => {
       banners = data;
@@ -16,7 +16,7 @@ function fetchBanners() {
 
 function showBanners() {
   const container = document.getElementById("banner-container");
-  container.innerHTML = "";
+  container.innerHTML = ""; // Limpia los banners anteriores
 
   const slice = banners.slice(currentIndex, currentIndex + bannersPerPage);
 
@@ -34,14 +34,18 @@ function showBanners() {
 
     div.style.cursor = "pointer";
     div.onclick = () => {
-      if (banner.link) window.open(banner.link, "_blank");
+      if (banner.link) {
+        window.open(banner.link, "_blank");
+      }
     };
 
     container.appendChild(div);
   });
 
   currentIndex += bannersPerPage;
-  if (currentIndex >= banners.length) currentIndex = 0;
+  if (currentIndex >= banners.length) {
+    currentIndex = 0;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", fetchBanners);
